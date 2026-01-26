@@ -3,8 +3,13 @@
   <head>
     <meta charset="UTF-8">
     <title>TEST</title>
+    <script>
+      function init(){
+        document.getElementById("button").onclick = XmlHttpRequest;
+      }
+    </script>
   </head>
-  <body>
+  <body onload="init()">
     <h1 id="kekka"></h1>
     <script>
       function XmlHttpRequest(){
@@ -22,7 +27,6 @@
           document.getElementById("kekka").innerHTML = httpObject.responseText;
         }
       }
-      document.getElementById("button").onclick = XmlHttpRequest;
     </script>
     <input id="button" type="button" value="TEST" />
   </body>
