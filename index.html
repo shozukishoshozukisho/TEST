@@ -15,7 +15,7 @@
         } else if(window.ActiveXObject){
           httpObject = new ActiveXObject('MSXML2.XMLHTTP.3.0');
         }
-        httpObject.onreadystatechange = display;
+        httpObject.onreadystate = display;
         httpObject.open("GET", "test.txt", true);
         httpObject.send(null);
       }
