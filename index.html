@@ -8,14 +8,11 @@
         document.getElementById("button").onclick = XmlHttpRequest;
       }
     </script>
-  </head>
-  <body onload="init()">
-    <span id="kekka"></span>
     <script>
       function XmlHttpRequest(){
         if(window.XMLHttpReqquest){
           httpObject = new XMLHttpRequest();
-        } else {
+        } else if(window.ActiveXObject){
           httpObject = new ActiveXObject('MSXML2.XMLHTTP.3.0');
         }
         httpObject.onreadystatechange = display;
@@ -28,6 +25,9 @@
         }
       }
     </script>
+  </head>
+  <body onload="init()">
+    <span id="kekka"></span>
     <input id="button" type="button" value="TEST" />
   </body>
 </html>
