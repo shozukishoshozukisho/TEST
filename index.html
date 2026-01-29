@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>TEST</title>
-    <script>
-      function init(){
-        document.getElementById("button").onclick = XmlHttpRequest;
-      }
-    </script>
-    <script>
-      function XmlHttpRequest(){
-        if(window.XMLHttpRequest){
-          httpObject = new XMLHttpRequest();
-        } else if(window.ActiveXObject){
-          httpObject = new ActiveXObject('MSXML2.XMLHTTP.3.0');
-        }
-        httpObject.onreadystate = display;
-        httpObject.open("GET", "test.txt", true);
-        httpObject.send(null);
-      }
-      function display() {
-        while(true){
-          if(httpObject.readystate == 4 && httpObject.status == 200){
-            document.getElementById("kekka").innerHTML = httpObject.responseText;
-            break;
-          }
-        }
-      }
-    </script>
-  </head>
-  <body onload="init()">
-    <span id="kekka"></span>
-    <input id="button" type="button" value="TEST" />
-  </body>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>練習</title>
+<style type="text/css">
+	img    {width:200px}
+</style>
+<script>
+//HTTP通信を行う関数
+function XmlHttpRequest(){
+	if(window.XMLHttpRequest){
+		//If IE7, Mozilla Firefox, Safari, and so on
+		httpObject = new XMLHttpRequest();
+	} else if(window.ActiveXObject){
+		//otherwise, use the ActiveX control for IE5.x and IE6.
+		httpObject = new ActiveXObject('MSXML2.XMLHTTP.3.0');
+	}
+	httpObject.onreadystatechange = display;
+	httpObject.open("GET", "TEST.txt", true);
+	httpObject.send(null);
+}
+//通信結果を表示する関数
+function display() {
+	if(httpObject.readyState == 4 && httpObject.status == 200) {
+		document.getElementById("ans").innerHTML = httpObject.responseText;
+	}
+}
+function init(){
+	document.getElementById("b1").onclick = XmlHttpRequest;
+}
+</script>
+</head>
+<body onload="init()">
+<p>質問：Ajaxとは何ですか？</p>
+<p>答え：<span id="ans">？</span></p>
+<form>
+<input type="button" id="b1" value="答え"/>
+</form>
+</body>
 </html>
