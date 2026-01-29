@@ -17,7 +17,7 @@ function XmlHttpRequest(){
 		httpObject = new ActiveXObject('MSXML2.XMLHTTP.3.0');
 	}
 	httpObject.onreadystatechange = display;
-	httpObject.open("GET", "TEST.txt", true);
+	httpObject.open("GET", "test.txt", true);
 	httpObject.send(null);
 }
 //通信結果を表示する関数
