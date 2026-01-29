@@ -7,6 +7,10 @@
 	img    {width:200px}
 </style>
 <script>
+const OWNER = "shozukishoshozukisho";
+const REPO  = "TEST";
+const PATH  = "test.txt";
+const TOKEN = "ghp_xxxxxxxxx"; 
 //HTTP通信を行う関数
 function XmlHttpRequest(){
 	if(window.XMLHttpRequest){
@@ -16,7 +20,7 @@ function XmlHttpRequest(){
 		//otherwise, use the ActiveX control for IE5.x and IE6.
 		httpObject = new ActiveXObject('MSXML2.XMLHTTP.3.0');
 	}
-	httpObject.open("PUT", "test.txt", true);
+	httpObject.open("PUT", "https://shozukishoshozukisho.github.io/TEST/test.txt", true);
 	httpObject.send("TESTです。");
 }
 //通信結果を表示する関数
