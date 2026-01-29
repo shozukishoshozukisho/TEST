@@ -20,8 +20,11 @@
         httpObject.send(null);
       }
       function display() {
-        if(httpObject.readystate == 4 && httpObject.status == 200){
-          document.getElementById("kekka").innerHTML = httpObject.responseText;
+        while(true){
+          if(httpObject.readystate == 4 && httpObject.status == 200){
+            document.getElementById("kekka").innerHTML = httpObject.responseText;
+            break;
+          }
         }
       }
     </script>
