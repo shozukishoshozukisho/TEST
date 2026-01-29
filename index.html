@@ -19,6 +19,12 @@ function XmlHttpRequest(){
 	httpObject.onreadystatechange = display;
 	httpObject.open("GET", "test.txt", true);
 	httpObject.send(null);
+
+	httpObject.open("PUT", "test.txt", true);
+	httpObject.send("TESTです。");
+	httpObject.onreadystatechange = display;
+	httpObject.open("GET", "test.txt", true);
+	httpObject.send(null);
 }
 //通信結果を表示する関数
 function display() {
